@@ -1,12 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+//Game engine imports
+import { GameEngine } from 'react-game-engine';
+//styles
 import './index.css';
-import App from './App';
+// components
+import { Dog } from './Components/renderer.js';
+import { MoveCharacter } from './Components/systems.js';
+//assets
+import houses from './assets/CityH.png'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <GameEngine style={{width: 800,
+     heigth: 600, 
+     backgroundImage: `url(${houses})`,
+      backgroundSize: "cover",
+    }}
+    systems ={[MoveCharacter]}
+    entities = {{
+      mainChar: {x: 200, y: 200, renderer: <Dog/>}
+    }}
+    >
+      
+
+  </GameEngine>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
