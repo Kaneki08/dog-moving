@@ -27,6 +27,8 @@ const MoveCharacter = (entities, { input }) => {
    */
   const dogRightBorderCondition = 800 - DOG_CHAR_WIDTH / 2;
   const dogLeftBorderCondition = 0 + DOG_CHAR_WIDTH / 2
+  const dogTopBorderCondition = 0 + DOG_CHAR_HEIGHT / 2
+  const dogDownBorderCondition = 600 - DOG_CHAR_HEIGHT / 2
 
   if (payload) {
     // Only move the dog chracter if the entity has not reached the right border
@@ -37,18 +39,36 @@ const MoveCharacter = (entities, { input }) => {
       console.log(dogChar.x);
     } else {
       console.log("the dog should stop moving");
+
     }
+
+    if (dogChar.y > dogTopBorderCondition && payload.code === "ArrowUp") {
+        // this moves the dog to the Top
+        dogChar.y = dogChar.y - 10;
+        console.log(dogChar.y);
+      } else {
+        console.log("the dog should stop moving");
+      }
 
         // Only move the dog chracter if the entity has not reached the right border
     // we need to check the dog width
     if (dogChar.x > dogLeftBorderCondition && payload.code === "ArrowLeft") {
-        // this moves the dog to the right
+        // this moves the dog to the left
         dogChar.x = dogChar.x - 10;
         console.log(dogChar.x);
       } else {
         console.log("the dog should stop moving");
       }
+  
+  if (dogChar.y < dogDownBorderCondition && payload.code === "ArrowDown") {
+    // this moves the dog to the botton 
+    dogChar.y = dogChar.y + 10;
+    console.log(dogChar.y);
+  } else {
+    console.log("the dog should stop moving");
   }
+ 
+}
 
   return entities;
 };

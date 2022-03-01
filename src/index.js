@@ -8,7 +8,7 @@ import "./index.css";
 import { Dog } from "./Components/renderer.js";
 import { MoveCharacter } from "./Components/systems.js";
 //assets
-// import houses from "./assets/CityH.png";
+ import houses from "./assets/CityH.png";
 import reportWebVitals from "./reportWebVitals";
 
 const width = 800;
